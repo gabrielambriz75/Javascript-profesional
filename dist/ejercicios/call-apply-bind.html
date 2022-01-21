@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function.property.call - Function.property.apply - Function.property.bind</title>
+</head>
+
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <ul>
+        <li><button class="call-to-action">Aprender</button></li>
+        <li><button class="call-to-action">Aprender Más</button></li>
+        <li><button class="call-to-action">Nunca parar de Aprender</button></li>
+    </ul>
+
+
+    <script>//Establece `this` usando `call`
+function saludar() {
+  console.log("Hola. Soy ".concat(this.name, " ").concat(this.apellido));
+}
+
+var Gabriel = {
+  name: 'Gabriel',
+  apellido: 'Ambriz'
+};
+saludar.call(Gabriel); //Establece `this` usando `call` y pasar argumentos a la funcion
+
+function caminar(metros, direccion) {
+  console.log("".concat(this.name, " camina ").concat(metros, " metros hacia ").concat(direccion, "."));
+}
+
+caminar.call(Gabriel, 400, "Norte"); //Establece `this` usando `apply` y pasar argumentos a la funcion
+
+var valores = [100, "Sur"];
+caminar.apply(Gabriel, valores);
+/* 
+Call - Comma
+Apply - Arreglo
+*/
+//Establece `this` en una nueva funcion usando `bind` 
+
+var Angel = {
+  name: "Angel",
+  apellido: "Dominguez"
+};
+var AngelSaluda = saludar.bind(Angel);
+AngelSaluda();
+var angelCamina = caminar.bind(Angel, 750);
+angelCamina("Noroeste"); //Cuando es util usar uno de estos metodos
+
+var buttons = document.getElementsByClassName('call-to-action'); // buttons.forEach(button => {
+//     button.onclick = () => alert("Nunca pares de aprender!");
+// });
+//NodeList
+
+Array.prototype.forEach.call(buttons, function (button) {
+  button.onclick = function () {
+    return alert("Nunca pares de aprender!");
+  };
+});</script>
+
+</body>
+
+</html>
