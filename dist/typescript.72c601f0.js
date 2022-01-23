@@ -154,31 +154,49 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 // //Object
 // let someObject: Object = { type: "WildCard" };
 //Funciones
-function add(a, b) {
-  return a + b;
+// function add(a: number, b: number): number {
+//   return a + b;
+// }
+// const sum = add(4, 3);
+// function createAdder(a: number): (number) => number {
+//   return function (b: number) {
+//     return a + b;
+//   };
+// }
+// const addFour = createAdder(4);
+// const fourPlus6 = addFour(6);
+// function fullName(firstName: string, lastName: string = "Dominguez") {
+//   return `${firstName} ${lastName}`;
+// }
+// const gabriel = fullName("Gabriel");
+// console.log(gabriel);
+//Interfaces
+var Color;
+
+(function (Color) {
+  Color["Rojo"] = "Rojo";
+  Color["Verde"] = "Verde";
+  Color["Azul"] = "Azul";
+  Color["Amarillo"] = "Amarillo";
+})(Color || (Color = {}));
+
+var rect = {
+  ancho: 4,
+  alto: 6 // color: Color.Verde,
+
+};
+
+function area(r) {
+  return r.ancho * r.alto;
 }
 
-var sum = add(4, 3);
+var areaRect = area(rect); // console.log(areaRect);
 
-function createAdder(a) {
-  return function (b) {
-    return a + b;
-  };
-}
+rect.toString = function () {
+  return this.color ? "Un rectangulo ".concat(this.color) : "Un rectangulo";
+};
 
-var addFour = createAdder(4);
-var fourPlus6 = addFour(6);
-
-function fullName(firstName, lastName) {
-  if (lastName === void 0) {
-    lastName = "Dominguez";
-  }
-
-  return "".concat(firstName, " ").concat(lastName);
-}
-
-var gabriel = fullName("Gabriel");
-console.log(gabriel);
+console.log(rect.toString());
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

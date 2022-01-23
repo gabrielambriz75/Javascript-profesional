@@ -51,24 +51,59 @@
 // let someObject: Object = { type: "WildCard" };
 
 //Funciones
-function add(a: number, b: number): number {
-  return a + b;
+// function add(a: number, b: number): number {
+//   return a + b;
+// }
+
+// const sum = add(4, 3);
+
+// function createAdder(a: number): (number) => number {
+//   return function (b: number) {
+//     return a + b;
+//   };
+// }
+
+// const addFour = createAdder(4);
+// const fourPlus6 = addFour(6);
+
+// function fullName(firstName: string, lastName: string = "Dominguez") {
+//   return `${firstName} ${lastName}`;
+// }
+
+// const gabriel = fullName("Gabriel");
+// console.log(gabriel);
+
+//Interfaces
+
+enum Color {
+  Rojo = "Rojo",
+  Verde = "Verde",
+  Azul = "Azul",
+  Amarillo = "Amarillo",
 }
 
-const sum = add(4, 3);
-
-function createAdder(a: number): (number) => number {
-  return function (b: number) {
-    return a + b;
-  };
+interface Rectangulo {
+  ancho: number;
+  alto: number;
+  color?: Color;
 }
 
-const addFour = createAdder(4);
-const fourPlus6 = addFour(6);
+let rect: Rectangulo = {
+  ancho: 4,
+  alto: 6,
+  // color: Color.Verde,
+};
 
-function fullName(firstName: string, lastName: string = "Dominguez") {
-  return `${firstName} ${lastName}`;
+function area(r: Rectangulo) {
+  return r.ancho * r.alto;
 }
 
-const gabriel = fullName("Gabriel");
-console.log(gabriel);
+const areaRect = area(rect);
+
+// console.log(areaRect);
+
+rect.toString = function () {
+  return this.color ? `Un rectangulo ${this.color}` : "Un rectangulo";
+};
+
+console.log(rect.toString());
