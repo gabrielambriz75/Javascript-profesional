@@ -118,13 +118,48 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"ejercicios/typescript/index.ts":[function(require,module,exports) {
-console.log("Hello typescript");
+// console.log("Hello typescript");
+// function add(a: number, b: number) {
+//   return a + b;
+// }
+// const sum = add(2, 3);
+//Boolean
+var muted = true;
+muted = false; //Numeros
 
-function add(a, b) {
-  return a + b;
-}
+var numerador = 42;
+var denominador = 6;
+var resultado = numerador / denominador; //Strings
 
-var sum = add(2, 3);
+var nombre = "Gabriel";
+var saludo = "Me llamo ".concat(nombre); //Arreglos
+
+var people = [];
+people = ["Gabriel", "Angel", "Jaqueline"];
+var peopleAndNumbers = [];
+peopleAndNumbers.push("Ricardo");
+peopleAndNumbers.push(3); //Enum
+
+var Color;
+
+(function (Color) {
+  Color["Rojo"] = "Rojo";
+  Color["Verde"] = "Verde";
+  Color["Azul"] = "Azul";
+  Color["Amarillo"] = "Amarillo";
+})(Color || (Color = {}));
+
+var colorFavorito = Color.Verde;
+console.log("Mi color favorito es ".concat(colorFavorito)); //Any
+
+var comodin = "Joker";
+comodin = {
+  type: "WildCard"
+}; //Object
+
+var someObject = {
+  type: "WildCard"
+};
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -153,7 +188,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64094" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62839" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
