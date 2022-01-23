@@ -124,42 +124,61 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 // }
 // const sum = add(2, 3);
 //Boolean
-var muted = true;
-muted = false; //Numeros
+// let muted: boolean = true;
+// muted = false;
+// //Numeros
+// let numerador: number = 42;
+// let denominador: number = 6;
+// let resultado = numerador / denominador;
+// //Strings
+// let nombre: string = "Gabriel";
+// let saludo = `Me llamo ${nombre}`;
+// //Arreglos
+// let people: string[] = [];
+// people = ["Gabriel", "Angel", "Jaqueline"];
+// let peopleAndNumbers: Array<string | number> = [];
+// peopleAndNumbers.push("Ricardo");
+// peopleAndNumbers.push(3);
+// //Enum
+// enum Color {
+//   Rojo = "Rojo",
+//   Verde = "Verde",
+//   Azul = "Azul",
+//   Amarillo = "Amarillo",
+// }
+// let colorFavorito: Color = Color.Verde;
+// console.log(`Mi color favorito es ${colorFavorito}`);
+// //Any
+// let comodin: any = "Joker";
+// comodin = { type: "WildCard" };
+// //Object
+// let someObject: Object = { type: "WildCard" };
+//Funciones
+function add(a, b) {
+  return a + b;
+}
 
-var numerador = 42;
-var denominador = 6;
-var resultado = numerador / denominador; //Strings
+var sum = add(4, 3);
 
-var nombre = "Gabriel";
-var saludo = "Me llamo ".concat(nombre); //Arreglos
+function createAdder(a) {
+  return function (b) {
+    return a + b;
+  };
+}
 
-var people = [];
-people = ["Gabriel", "Angel", "Jaqueline"];
-var peopleAndNumbers = [];
-peopleAndNumbers.push("Ricardo");
-peopleAndNumbers.push(3); //Enum
+var addFour = createAdder(4);
+var fourPlus6 = addFour(6);
 
-var Color;
+function fullName(firstName, lastName) {
+  if (lastName === void 0) {
+    lastName = "Dominguez";
+  }
 
-(function (Color) {
-  Color["Rojo"] = "Rojo";
-  Color["Verde"] = "Verde";
-  Color["Azul"] = "Azul";
-  Color["Amarillo"] = "Amarillo";
-})(Color || (Color = {}));
+  return "".concat(firstName, " ").concat(lastName);
+}
 
-var colorFavorito = Color.Verde;
-console.log("Mi color favorito es ".concat(colorFavorito)); //Any
-
-var comodin = "Joker";
-comodin = {
-  type: "WildCard"
-}; //Object
-
-var someObject = {
-  type: "WildCard"
-};
+var gabriel = fullName("Gabriel");
+console.log(gabriel);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
